@@ -5,5 +5,4 @@ export const getContacts = state => {
 
 // export const getContactsName = state => state.contacts.name;
 // export const getContactsNumber = state => state.contacts.number;
-
 // export const getFilter = state => state.filter;

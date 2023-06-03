@@ -34,7 +34,7 @@ const ContactList = () => {
   // };
 
   const contacts = useSelector(getContacts);
-  console.log('comes contacts from state', contacts); // {contacts} - [] contacts-{filter: '', contacts: Array(4)}
+  // console.log('comes contacts from state', contacts); // {contacts} - [] contacts-{filter: '', contacts: Array(4)}
   const dispatch = useDispatch();
 
   const deleteContacts = id => {
