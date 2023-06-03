@@ -75,9 +75,8 @@ const ContactForm = () => {
     //   default:
     //     return;
     // }
-
-    console.log(e.target.value); // 34-34-34
-    console.log(e.target.name); // number
+    // console.log(e.target.value); // 34-34-34
+    // console.log(e.target.name); // number
     // dispatch(
     //   addContact({
     //     name: e.target.name,

@@ -12,15 +12,17 @@ const initialState = {
 export const contactsReducer = createReducer(initialState, builder => {
   builder
     .addCase('contacts/fetchContacts', (state, action) => {
-      console.log(initialState.contacts);
-      const filteredContacts = initialState.contacts.filter(el =>
+      console.log(initialState);
+      console.log(state);
+      // console.log(action);
+      const filteredContacts = state.contacts.filter(el =>
         el.name.toLowerCase().includes(action.payload.toLowerCase())
       );
       state.contacts = filteredContacts;
       state.filter = action.payload;
     })
     .addCase('contacts/addContact', (state, action) => {
-      console.log(state.contacts);
+      // console.log(state.contacts);
       state.contacts.push(action.payload);
       state.filter = initialState;
     })
