@@ -1,16 +1,10 @@
 import { nanoid } from 'nanoid';
 import css from './ContactForm.module.css';
 import { FaUserPlus, FaTty, FaUserAlt } from 'react-icons/fa';
-// import useLocalStorage from '../Hooks/UseLocalStoraje';
-// import PropTypes from 'prop-types';
 
 // Імпортуємо хук
 import { useDispatch, useSelector } from 'react-redux';
-// import { getContacts } from 'redux/selectors';
 import { addContact } from 'redux/slice';
-//useDispatch,
-// Імпортуємо генератор екшену
-// import { addTask } from '../../redux/actions';
 
 const ContactForm = () => {
   //====from app
@@ -37,9 +31,6 @@ const ContactForm = () => {
   // Отримуємо посилання на функцію відправки екшенів
   const dispatch = useDispatch();
 
-  // const { contacts } = useSelector(getContacts);
-  // console.log(contacts);
-  // const contacts = useSelector(state => state.contacts);
   const name = useSelector(state => state.contacts.name);
   const number = useSelector(state => state.contacts.number);
   const nameRandomId = nanoid(10);

@@ -16,7 +16,6 @@ export const addContact = ({ id, name, number }) => {
   return {
     type: 'contacts/addContact',
     payload: {
-      // id: nanoid(5),
       id,
       name,
       number,
