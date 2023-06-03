@@ -3,7 +3,7 @@ export const getContacts = state => {
   return state.contacts.contacts;
 };
 
-export const getContactsName = state => state.contacts.name;
-export const getContactsNumber = state => state.contacts.number;
+// export const getContactsName = state => state.contacts.name;
+// export const getContactsNumber = state => state.contacts.number;
 
-export const getFilter = state => state.filter;
+// export const getFilter = state => state.filter;

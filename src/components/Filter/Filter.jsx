@@ -2,8 +2,10 @@
 import css from './Filter.module.css';
 import { FaSistrix } from 'react-icons/fa';
 // import { getContacts, getFilter } from 'redux/selectors';
+
 import { useDispatch } from 'react-redux';
 import { fetchContacts } from 'redux/actions';
+// import { fetchContacts } from 'redux/slice';
 
 const Filter = () => {
   const dispatch = useDispatch();

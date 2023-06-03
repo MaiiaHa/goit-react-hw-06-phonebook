@@ -1,4 +1,4 @@
-// import { nanoid } from 'nanoid';
+import { nanoid } from 'nanoid';
 import css from './ContactForm.module.css';
 import { FaUserPlus, FaTty, FaUserAlt } from 'react-icons/fa';
 // import useLocalStorage from '../Hooks/UseLocalStoraje';
@@ -7,7 +7,7 @@ import { FaUserPlus, FaTty, FaUserAlt } from 'react-icons/fa';
 // Імпортуємо хук
 import { useDispatch, useSelector } from 'react-redux';
 // import { getContacts } from 'redux/selectors';
-import { addContact } from 'redux/actions';
+import { addContact } from 'redux/slice';
 //useDispatch,
 // Імпортуємо генератор екшену
 // import { addTask } from '../../redux/actions';
@@ -42,8 +42,8 @@ const ContactForm = () => {
   // const contacts = useSelector(state => state.contacts);
   const name = useSelector(state => state.contacts.name);
   const number = useSelector(state => state.contacts.number);
-  // const nameRandomId = nanoid(10);
-  // const numberRandomId = nanoid(10);
+  const nameRandomId = nanoid(10);
+  const numberRandomId = nanoid(10);
 
   const formSubmit = event => {
     event.preventDefault();
@@ -55,6 +55,7 @@ const ContactForm = () => {
     // dispatch(addContact(form.elements.text.value));
     dispatch(
       addContact({
+        id: nanoid(5),
         name: form.elements.name.value,
         number: form.elements.number.value,
       })
@@ -99,7 +100,7 @@ const ContactForm = () => {
 
   return (
     <form className={css.contacts} action="" onSubmit={formSubmit}>
-      <label className={css.input}>
+      <label className={css.input} htmlFor={nameRandomId}>
         {/* htmlFor={nameRandomId} */}
         <FaUserAlt width={160} height={160} />
         <span className={css.inputName}>Name:</span>
@@ -108,7 +109,7 @@ const ContactForm = () => {
           type="text"
           name="name"
           placeholder="Name Surname"
-          // id={nameRandomId}
+          id={nameRandomId}
           value={name}
           onChange={hendleChange}
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -116,7 +117,7 @@ const ContactForm = () => {
           required
         />
       </label>
-      <label className={css.input}>
+      <label className={css.input} htmlFor={numberRandomId}>
         {/* htmlFor={numberRandomId} */}
         <FaTty />
         <span className={css.inputName}>Number:</span>
@@ -125,7 +126,7 @@ const ContactForm = () => {
           type="tel"
           name="number"
           placeholder="555-55-55"
-          // id={numberRandomId}
+          id={numberRandomId}
           value={number}
           onChange={hendleChange}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"

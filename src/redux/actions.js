@@ -1,5 +1,5 @@
 import { createAction } from '@reduxjs/toolkit';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 //----------------------
 export const fetchContacts = createAction('contacts/fetchContacts');
 //----------------------
@@ -12,11 +12,12 @@ export const fetchContacts = createAction('contacts/fetchContacts');
 //   };
 // };
 
-export const addContact = ({ name, number }) => {
+export const addContact = ({ id, name, number }) => {
   return {
     type: 'contacts/addContact',
     payload: {
-      id: nanoid(5),
+      // id: nanoid(5),
+      id,
       name,
       number,
     },

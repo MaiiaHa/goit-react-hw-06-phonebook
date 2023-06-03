@@ -5,7 +5,7 @@ import css from './ContactList.module.css';
 // import { addContact } from 'redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { getContacts } from 'redux/selectors';
-import { deleteContact } from 'redux/actions';
+import { deleteContact } from 'redux/slice';
 // import { fetchAllContacts } from 'redux/actions';
 // import { useEffect, useState } from 'react';
 // import { fetchAllContacts } from 'redux/actions';
@@ -34,7 +34,7 @@ const ContactList = () => {
   // };
 
   const contacts = useSelector(getContacts);
-  // console.log('comes contacts from state', contacts); // {contacts} - [] contacts-{filter: '', contacts: Array(4)}
+  console.log('comes contacts from state', contacts); // {contacts} - [] contacts-{filter: '', contacts: Array(4)}
   const dispatch = useDispatch();
 
   const deleteContacts = id => {
