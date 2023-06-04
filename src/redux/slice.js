@@ -12,11 +12,11 @@ export const contactsSlice = createSlice({
     ],
   },
   reducers: {
-    fetchContacts: (state, action) => {
-      const filteredContacts = state.contacts.filter(el =>
-        el.name.toLowerCase().includes(action.payload.toLowerCase())
-      );
-      state.contacts = filteredContacts;
+    searchContacts: (state, action) => {
+      // const filteredContacts = state.contacts.filter(el =>
+      //   el.name.toLowerCase().includes(action.payload.toLowerCase())
+      // );
+      // state.contacts = filteredContacts;
       state.filter = action.payload;
     },
     addContact: (state, action) => {
@@ -33,5 +33,5 @@ export const contactsSlice = createSlice({
   },
 });
 
-export const { fetchContacts, addContact, deleteContact } =
+export const { searchContacts, addContact, deleteContact } =
   contactsSlice.actions;

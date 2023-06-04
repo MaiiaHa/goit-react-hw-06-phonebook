@@ -11,7 +11,7 @@
 // };
 // export const contactsReducer = createReducer(initialState, builder => {
 //   builder
-//     .addCase('contacts/fetchContacts', (state, action) => {
+//     .addCase('contacts/searchContacts', (state, action) => {
 //       console.log(initialState);
 //       console.log(state);
 //       // console.log(action);

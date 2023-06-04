@@ -1,38 +1,30 @@
 import { createAction } from '@reduxjs/toolkit';
-// import { nanoid } from 'nanoid';
 //----------------------
-export const fetchContacts = createAction('contacts/fetchContacts');
+export const searchContacts = createAction('contacts/searchContacts');
+export const addContact = createAction('contacts/addContact');
+export const deleteContact = createAction('contacts/deleteContact');
 //----------------------
-
-//input for filter
-// export const fetchAllContacts = input => {
+// export const searchContacts = input => {
 //   return {
-//     type: 'contacts/fetchAllContacts',
+//     type: 'contacts/searchContacts',
 //     payload: input,
 //   };
 // };
 
-export const addContact = ({ id, name, number }) => {
-  return {
-    type: 'contacts/addContact',
-    payload: {
-      id,
-      name,
-      number,
-    },
-  };
-};
+// export const addContact = ({ id, name, number }) => {
+//   return {
+//     type: 'contacts/addContact',
+//     payload: {
+//       id,
+//       name,
+//       number,
+//     },
+//   };
+// };
 
-export const deleteContact = contactId => {
-  return {
-    type: 'contacts/deleteContact',
-    payload: contactId,
-  };
-};
-
-export const filteredContact = input => {
-  return {
-    type: 'contacts/filteredContact',
-    payload: input,
-  };
-};
+// export const deleteContact = contactId => {
+//   return {
+//     type: 'contacts/deleteContact',
+//     payload: contactId,
+//   };
+// };

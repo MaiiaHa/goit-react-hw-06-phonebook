@@ -2,29 +2,23 @@ import { ReactComponent as DeleteIcon } from '../../icons/delete.svg';
 import PropTypes from 'prop-types';
 import css from './ContactList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from 'redux/selectors';
+import { getContacts, getFilter } from 'redux/selectors';
 import { deleteContact } from 'redux/slice';
 
 const ContactList = () => {
-  //{ contacts, deleteContact }
-  // const [input, setInput] = useState('');
-  //====from app
-  // const getVisibleContacts = () => {
-  //   const normalizedFilter = filter.toLowerCase();
-  //   return contacts.filter(contact =>
-  //     contact.name.toLowerCase().includes(normalizedFilter)
-  //   );
-  // };
-  // const contacts = getVisibleContacts();
-
-  // const deleteContact = userId => {
-  //   setContacts(prevState => prevState.filter(({ id }) => userId !== id));
-  // };
-  //====from app
-
-  const contacts = useSelector(getContacts);
-  // console.log('comes contacts from state', contacts); // {contacts} - [] contacts-{filter: '', contacts: Array(4)}
   const dispatch = useDispatch();
+
+  const filter = useSelector(getFilter);
+  const contactsFromState = useSelector(getContacts);
+
+  const getVisibleContacts = () => {
+    const normalizedFilter = filter.toLowerCase();
+    return contactsFromState.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)
+    );
+  };
+
+  const contacts = !filter ? contactsFromState : getVisibleContacts();
 
   const deleteContacts = id => {
     dispatch(deleteContact(id));
@@ -44,7 +38,6 @@ const ContactList = () => {
             <DeleteIcon fill="white" />
             {/* Delete */}
           </button>
-          {/* <button onClick={deleteContacts}>Delete item</button> */}
         </li>
       ))}
     </ul>

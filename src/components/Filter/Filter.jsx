@@ -1,13 +1,13 @@
 import css from './Filter.module.css';
 import { FaSistrix } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
-import { fetchContacts } from 'redux/actions';
+import { searchContacts } from 'redux/actions';
 
 const Filter = () => {
   const dispatch = useDispatch();
 
   const hendleChangeInput = e => {
-    dispatch(fetchContacts(e.target.value));
+    dispatch(searchContacts(e.target.value));
   };
 
   return (
@@ -24,11 +24,6 @@ const Filter = () => {
       />
     </label>
   );
-};
-
-Filter.propTypes = {
-  // onChange: PropTypes.func.isRequired,
-  // value: PropTypes.string.isRequired,
 };
 
 export default Filter;
