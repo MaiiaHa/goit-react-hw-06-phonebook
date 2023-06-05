@@ -20,11 +20,10 @@ const ContactForm = () => {
       el => el.name === form.elements.name.value
     );
     if (checkedName) {
-      form.reset();
-
       alert(
         `${form.elements.name.value} is already in list. Please enter other name.`
       );
+      form.reset();
       return;
     }
 
@@ -47,8 +46,8 @@ const ContactForm = () => {
           className={css.inputField}
           type="text"
           name="name"
-          placeholder="Name Surname"
           id={nameRandomId}
+          placeholder="Name Surname"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
@@ -61,8 +60,8 @@ const ContactForm = () => {
           className={css.inputField}
           type="tel"
           name="number"
-          placeholder="555-55-55"
           id={numberRandomId}
+          placeholder="555-55-55"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
