@@ -18,7 +18,7 @@ const ContactList = () => {
     );
   };
 
-  const contacts = !filter ? contactsFromState : getVisibleContacts();
+  const contacts = getVisibleContacts();
 
   const deleteContacts = id => {
     dispatch(deleteContact(id));
@@ -36,7 +36,6 @@ const ContactList = () => {
             aria-label="Delete contact"
           >
             <DeleteIcon fill="white" />
-            {/* Delete */}
           </button>
         </li>
       ))}

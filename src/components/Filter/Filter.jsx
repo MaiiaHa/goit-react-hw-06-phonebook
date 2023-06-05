@@ -19,7 +19,6 @@ const Filter = () => {
         type="text"
         placeholder="search"
         name="filter"
-        // value={value}
         onChange={hendleChangeInput}
       />
     </label>

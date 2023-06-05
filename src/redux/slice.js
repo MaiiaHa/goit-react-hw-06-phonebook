@@ -13,22 +13,16 @@ export const contactsSlice = createSlice({
   },
   reducers: {
     searchContacts: (state, action) => {
-      // const filteredContacts = state.contacts.filter(el =>
-      //   el.name.toLowerCase().includes(action.payload.toLowerCase())
-      // );
-      // state.contacts = filteredContacts;
       state.filter = action.payload;
     },
     addContact: (state, action) => {
       state.contacts.push(action.payload);
-      // state.filter = initialState.filter;
     },
     deleteContact: (state, action) => {
       const index = state.contacts.findIndex(
         contact => contact.id === action.payload
       );
       state.contacts.splice(index, 1);
-      // state.filter = initialState.filter;
     },
   },
 });

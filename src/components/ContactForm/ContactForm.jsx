@@ -1,20 +1,32 @@
 import { nanoid } from 'nanoid';
 import css from './ContactForm.module.css';
 import { FaUserPlus, FaTty, FaUserAlt } from 'react-icons/fa';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/slice';
+import { getContacts } from 'redux/selectors';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
+  const contactsFromState = useSelector(getContacts);
 
-  // const name = useSelector(state => state.contacts.name);
-  // const number = useSelector(state => state.contacts.number);
   const nameRandomId = nanoid(10);
   const numberRandomId = nanoid(10);
 
   const formSubmit = event => {
     event.preventDefault();
     const form = event.target;
+
+    const checkedName = contactsFromState.find(
+      el => el.name === form.elements.name.value
+    );
+    if (checkedName) {
+      form.reset();
+
+      alert(
+        `${form.elements.name.value} is already in list. Please enter other name.`
+      );
+      return;
+    }
 
     dispatch(
       addContact({
@@ -26,25 +38,9 @@ const ContactForm = () => {
     form.reset();
   };
 
-  // const hendleChange = e => {
-  //   // console.log(e.target.name); from store name & number
-  //   // const { name, value } = e.target;
-  //   // switch (name) {
-  //   //   case 'name':
-  //   //     setName(value);
-  //   //     break;
-  //   //   case 'number':
-  //   //     setNumber(value);
-  //   //     break;
-  //   //   default:
-  //   //     return;
-  //   // }
-  // };
-
   return (
     <form className={css.contacts} action="" onSubmit={formSubmit}>
-      <label className={css.input} htmlFor={nameRandomId}>
-        {/* htmlFor={nameRandomId} */}
+      <label className={css.input}>
         <FaUserAlt width={160} height={160} />
         <span className={css.inputName}>Name:</span>
         <input
@@ -60,8 +56,7 @@ const ContactForm = () => {
           required
         />
       </label>
-      <label className={css.input} htmlFor={numberRandomId}>
-        {/* htmlFor={numberRandomId} */}
+      <label className={css.input}>
         <FaTty />
         <span className={css.inputName}>Number:</span>
         <input
